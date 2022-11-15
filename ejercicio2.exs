@@ -74,4 +74,26 @@ defmodule Ejercicio do
 
     {ascendente, descendente}
   end
+
+  def persona(%{edad: edad, cp: cp}) do
+    etapa = cond do
+      edad >=6 && edad <= 11 -> "Nino"
+      edad >=12 && edad <= 18 -> "Adolecente"
+      edad >=19 && edad <= 26 -> "Juventud"
+      edad >=27 && edad <= 59 -> "Adulto"
+      edad >=60 -> "Persona mayor"
+      true -> "Edad invalida"
+    end
+    {etapa, cp(cp)}
+  end
+
+  defp cp(cp) do
+    cond do
+      cp == 70000 -> "H. CD. Juchitán de Zaragoza"
+      cp == 11320 -> "CIudad de Mexico"
+      cp == 70110 -> "CD. Ixtepec"
+      true -> "CP invalido"
+    end
+  end
+
 end
